@@ -5,9 +5,7 @@ import { pool } from "../db/index.js";
 
 export async function getlistings() {
   try {
-    const result = await pool.query(
-      "SELECT first_name || ' ' || last_name AS full_name FROM listings"
-    );
+    const result = await pool.query("SELECT * FROM guest_listings_tbl");
     return [...result.rows];
   } catch (error) {
     // Handle the error appropriately (e.g., logging, error response)

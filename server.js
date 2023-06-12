@@ -15,7 +15,7 @@ const PORT = process.env.PORT;
 // app.use(express.json());
 
 // Now go to the routes folder. (Start with the authors ones for now)
-app.use("/api/books", listingRoutes);
+app.use("/api/listings", listingRoutes);
 
 app.listen(PORT, function () {
   console.log(`Server listening on port ${PORT}`);
