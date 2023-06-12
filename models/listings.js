@@ -1,12 +1,30 @@
 // According to the video ( https://www.youtube.com/watch?v=mtZdybMV4Bw ), a model takes the request received by the controller and communicates with the database. Sure enough, in this file is where the SQL queries appear to happen. After it has received a response from the database, it should pass the response back to the controller (which will then pass it to the view section).
 
 // The following imports the pool from where it is declared and opened in the index.js in the db folder.
-import { pool } from "../db/index.js";
+// import { pool } from "../db/index.js";
+import { supabase } from "../db/index.js";
+
+// import { createClient } from "@supabase/supabase-js";
+// const supabaseUrl = "https://pracwflfupqvxaksvunz.supabase.co";
+// const supabaseKey =
+//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InByYWN3ZmxmdXBxdnhha3N2dW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY1NjQ0OTcsImV4cCI6MjAwMjE0MDQ5N30.1On9-IZkmyCRw57pFQceaTYTEnY8_kMf7nDvM4cmonQ";
+// const supabaseUrl = process.env.DB_CONNECTION_STRING;
+// const supabaseKey = process.env.DB_ANON_KEY;
+// const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+// const supabaseKey = process.env.REACT_APP_ANON_KEY;
+// const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function getlistings() {
   try {
-    const result = await pool.query("SELECT * FROM guest_listings_tbl");
-    return [...result.rows];
+    // const result = await pool.query("SELECT * FROM guest_listings_tbl");
+    // const result = await supabase.query("SELECT * FROM guest_listings_tbl");
+    const result = await supabase.from("guest_listings_tbl").select();
+    console.log("We made it to model.");
+    console.log(result);
+    // return [...result.rows];
+    return [...result.data];
+    // return [...result.data.rows];
+    // return result.data.rows;
   } catch (error) {
     // Handle the error appropriately (e.g., logging, error response)
     console.error("Error retrieving listings:", error);

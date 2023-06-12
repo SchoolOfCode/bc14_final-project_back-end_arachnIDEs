@@ -7,7 +7,8 @@ import express from "express";
 import { listingRoutes } from "./routes/listings.js";
 
 const app = express();
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
+const PORT = 5000;
 
 // app.use(morgan("dev"));
 // The following line could perhaps be the crucial step for displaying the result of the "view section" of the MVC (Model View Controller) architecture. In this case, as there is no view folder, I am guessing that the view section IS the public folder.
@@ -16,6 +17,7 @@ const PORT = process.env.PORT;
 
 // Now go to the routes folder. (Start with the authors ones for now)
 app.use("/api/listings", listingRoutes);
+// console.log(process.env.REACT_APP_SUPABASE_URL);
 
 app.listen(PORT, function () {
   console.log(`Server listening on port ${PORT}`);

@@ -13,14 +13,24 @@ This pool object is used to manage and reuse database connections, which can imp
 // I believe the purpose of the pg package is simply to allow us to communicate with a PostgreSQL database.
 import pg from "pg";
 
-const connectionString = process.env.DB_CONNECTION_STRING;
+import { createClient } from "@supabase/supabase-js";
+
+// const connectionString = process.env.DB_CONNECTION_STRING;
+// export const supabaseUrl = process.env.DB_CONNECTION_STRING;
+// export const supabaseKey = process.env.DB_ANON_KEY;
+// export const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+// export const supabaseKey = process.env.REACT_APP_ANON_KEY;
+export const supabaseUrl = "https://pracwflfupqvxaksvunz.supabase.co";
+export const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InByYWN3ZmxmdXBxdnhha3N2dW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY1NjQ0OTcsImV4cCI6MjAwMjE0MDQ5N30.1On9-IZkmyCRw57pFQceaTYTEnY8_kMf7nDvM4cmonQ";
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 /* The line "if (!connectionString)" is a conditional statement that checks if the  connectionString  variable is empty or undefined.  
  
 The  !  symbol is a logical operator that negates its operand's truthiness. When placed before a variable or expression, it returns the opposite of that value. If the value is truthy, it returns false. If it's falsy, it returns true.  
  
 So, in this case, if  connectionString  is empty or undefined - which are falsy values - the condition is true, and the block of code inside the if statement gets executed. In this case, it throws an error message with instructions on how to fix the issue of a missing or blank DB_CONNECTION_STRING environment variable. */
-if (!connectionString) {
+if (!supabaseUrl) {
   throw new Error(
     "No DB_CONNECTION_STRING defined. Did you load in your env variables?"
   );
@@ -40,9 +50,9 @@ This creates a pool of connection clients that are ready to execute queries on t
  Pooling database connections using a library like the  pg.Pool  class helps avoid this overhead by keeping a pool of already-connected clients ready to use and avoiding the need to establish new connections each time a new query is executed. */
 
 // Sure enough, checking back in my notes (Day44_17052023) appears to reveal that, were we to use client, we would have needed to have opened a connection with await client.connect(); which doesn't happen in this project as far as I can tell. Nor, I believe, does closing the connection with await client.end(); .
-export const pool = new pg.Pool({
-  connectionString,
-});
+// export const pool = new pg.Pool({
+//   supabaseUrl,
+// });
 
 // The below is the equivalent of the above:
 // export const pool = new pg.Pool({

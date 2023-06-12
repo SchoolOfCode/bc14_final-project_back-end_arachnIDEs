@@ -12,6 +12,7 @@ import * as listingModel from "../models/listings.js";
 // }
 
 export async function getlistings(req, res) {
+  console.log("Made it to controller.");
   const listings = await listingModel.getlistings();
   res.json({ success: true, payload: listings });
 }
