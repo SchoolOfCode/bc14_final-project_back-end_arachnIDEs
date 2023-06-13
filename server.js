@@ -5,10 +5,12 @@ import express from "express";
 
 // import { bookRoutes } from "./routes/books.js";
 import { listingRoutes } from "./routes/listings.js";
-
+import cors from "cors";
 const app = express();
 // const PORT = process.env.PORT;
 const PORT = 5000;
+// const cors = require("cors");
+app.use(cors({ origin: "http://localhost:3000" }));
 
 // app.use(morgan("dev"));
 // The following line could perhaps be the crucial step for displaying the result of the "view section" of the MVC (Model View Controller) architecture. In this case, as there is no view folder, I am guessing that the view section IS the public folder.
