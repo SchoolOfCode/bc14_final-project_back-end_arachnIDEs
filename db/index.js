@@ -18,11 +18,13 @@ import { createClient } from "@supabase/supabase-js";
 // const connectionString = process.env.DB_CONNECTION_STRING;
 // export const supabaseUrl = process.env.DB_CONNECTION_STRING;
 // export const supabaseKey = process.env.DB_ANON_KEY;
-// export const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-// export const supabaseKey = process.env.REACT_APP_ANON_KEY;
-export const supabaseUrl = "https://pracwflfupqvxaksvunz.supabase.co";
-export const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InByYWN3ZmxmdXBxdnhha3N2dW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY1NjQ0OTcsImV4cCI6MjAwMjE0MDQ5N30.1On9-IZkmyCRw57pFQceaTYTEnY8_kMf7nDvM4cmonQ";
+export const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+export const supabaseKey = process.env.REACT_APP_ANON_KEY;
+console.log(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_ANON_KEY);
+console.log(process.env);
+// export const supabaseUrl = "https://pracwflfupqvxaksvunz.supabase.co";
+// export const supabaseKey =
+//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InByYWN3ZmxmdXBxdnhha3N2dW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY1NjQ0OTcsImV4cCI6MjAwMjE0MDQ5N30.1On9-IZkmyCRw57pFQceaTYTEnY8_kMf7nDvM4cmonQ";
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 /* The line "if (!connectionString)" is a conditional statement that checks if the  connectionString  variable is empty or undefined.  
