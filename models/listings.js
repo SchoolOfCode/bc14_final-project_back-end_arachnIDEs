@@ -76,7 +76,7 @@ export async function createlisting(listing) {
     //   skills_wanted,
     //   timescale,
     // } = listing;
-    console.log(listing)
+    console.log(listing);
     const {
       borough_name,
       created_at,
@@ -96,16 +96,16 @@ export async function createlisting(listing) {
         {
           borough_name,
           display_name,
-          email,
+          email_address: email,
           listing_details,
           listing_title,
           skills_offered,
-          skills_wanted          
+          skills_wanted,
         },
       ])
       .select();
-console.log(resultFromCreate);
-
+    console.log(resultFromCreate);
+    return resultFromCreate;
     // // Once we're done the above, we want to return the newly create row, so we need to do another query to SELECT that row.
     // const queryTextForSelect =
     //   "SELECT * FROM listings WHERE first_name = $1 AND last_name = $2";
