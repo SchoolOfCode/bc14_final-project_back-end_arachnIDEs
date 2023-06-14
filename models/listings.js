@@ -81,7 +81,7 @@ export async function createlisting(listing) {
       borough_name,
       created_at,
       display_name,
-      email,
+      email_address,
       listing_details,
       listing_id,
       listing_title,
@@ -96,7 +96,7 @@ export async function createlisting(listing) {
         {
           borough_name,
           display_name,
-          email_address: email,
+          email_address,
           listing_details,
           listing_title,
           skills_offered,
