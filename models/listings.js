@@ -4,16 +4,6 @@
 // import { pool } from "../db/index.js";
 import { supabase } from "../db/index.js";
 
-// import { createClient } from "@supabase/supabase-js";
-// const supabaseUrl = "https://pracwflfupqvxaksvunz.supabase.co";
-// const supabaseKey =
-//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InByYWN3ZmxmdXBxdnhha3N2dW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY1NjQ0OTcsImV4cCI6MjAwMjE0MDQ5N30.1On9-IZkmyCRw57pFQceaTYTEnY8_kMf7nDvM4cmonQ";
-// const supabaseUrl = process.env.DB_CONNECTION_STRING;
-// const supabaseKey = process.env.DB_ANON_KEY;
-// const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-// const supabaseKey = process.env.REACT_APP_ANON_KEY;
-// const supabase = createClient(supabaseUrl, supabaseKey);
-
 export async function getlistings() {
   try {
     // const result = await pool.query("SELECT * FROM guest_listings_tbl");

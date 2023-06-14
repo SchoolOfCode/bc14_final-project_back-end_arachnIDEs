@@ -11,7 +11,7 @@ This pool object is used to manage and reuse database connections, which can imp
 */
 
 // I believe the purpose of the pg package is simply to allow us to communicate with a PostgreSQL database.
-import pg from "pg";
+// import pg from "pg";
 
 import { createClient } from "@supabase/supabase-js";
 
