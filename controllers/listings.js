@@ -22,11 +22,12 @@ export async function getlistings(req, res) {
 //   res.json({ success: true, payload: listing });
 // }
 
-// export async function createlisting(req, res) {
-//   const data = req.body;
-//   const listing = await listingModel.createlisting(data);
-//   res.json({ success: true, payload: listing });
-// }
+export async function createlisting(req, res) {
+  console.log("Made it to controller.");
+  const data = req.body;
+  const listing = await listingModel.createlisting(data);
+  res.json({ success: true, payload: listing });
+}
 
 // export async function updatelistingById(req, res) {
 //   const data = req.body;

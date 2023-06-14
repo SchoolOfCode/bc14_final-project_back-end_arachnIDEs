@@ -17,7 +17,7 @@ listingRoutes.get("/", listingController.getlistings);
 
 // listingRoutes.get("/:id", listingController.getlistingById);
 
-// listingRoutes.post("/", listingController.createlisting);
+listingRoutes.post("/", listingController.createlisting);
 
 // listingRoutes.patch("/:id", listingController.updatelistingById);
 

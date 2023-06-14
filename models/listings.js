@@ -52,28 +52,61 @@ export async function getlistings() {
 //   }
 // }
 
-// export async function createlisting(listing) {
-//   // Query the database to create an listing and return the newly created listing
-//   try {
-//     // console.log(listing);
-//     const values = [listing.first_name, listing.last_name];
-//     // const values = [listing];
-//     const queryTextForCreate =
-//       "INSERT INTO listings (first_name, last_name) VALUES ($1, $2)";
-//     await pool.query(queryTextForCreate, values);
+export async function createlisting(listing) {
+  // Query the database to create an listing and return the newly created listing
+  try {
+    // console.log(listing);
+    // const values = [listing.first_name, listing.last_name];
+    // // const values = [listing];
+    // const queryTextForCreate =
+    //   "INSERT INTO listings (first_name, last_name) VALUES ($1, $2)";
+    // await pool.query(queryTextForCreate, values);
 
-//     // Once we're done the above, we want to return the newly create row, so we need to do another query to SELECT that row.
-//     const queryTextForSelect =
-//       "SELECT * FROM listings WHERE first_name = $1 AND last_name = $2";
-//     const result = await pool.query(queryTextForSelect, values);
-//     // console.log(result.rows);
-//     return result.rows;
-//   } catch (error) {
-//     // Handle the error appropriately (e.g., logging, error response)
-//     console.error("Error retrieving listings:", error);
-//     throw error; // Rethrow the error if necessary
-//   }
-// }
+    // Note: Don't know if parameterized queries are a thing with supabase.
+    // Note: listing_id and created_at might not be necessary.
+    const {
+      borough_name,
+      created_at,
+      display_name,
+      email,
+      listing_details,
+      listing_id,
+      listing_title,
+      skills_offered,
+      skills_wanted,
+      timescale,
+    } = listing;
+
+    const resultFromCreate = await supabase
+      .from("guest_listings_tbl")
+      .insert([
+        {
+          borough_name,
+          created_at,
+          display_name,
+          email,
+          listing_details,
+          listing_id,
+          listing_title,
+          skills_offered,
+          skills_wanted,
+          timescale,
+        },
+      ])
+      .select();
+
+    // // Once we're done the above, we want to return the newly create row, so we need to do another query to SELECT that row.
+    // const queryTextForSelect =
+    //   "SELECT * FROM listings WHERE first_name = $1 AND last_name = $2";
+    // const result = await pool.query(queryTextForSelect, values);
+    // // console.log(result.rows);
+    // return result.rows;
+  } catch (error) {
+    // Handle the error appropriately (e.g., logging, error response)
+    console.error("Error retrieving listings:", error);
+    throw error; // Rethrow the error if necessary
+  }
+}
 
 // export async function updatelistingById(id, updates) {
 //   // Query the database to update an listing and return the newly updated listing
