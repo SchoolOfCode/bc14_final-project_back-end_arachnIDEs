@@ -64,6 +64,19 @@ export async function createlisting(listing) {
 
     // Note: Don't know if parameterized queries are a thing with supabase.
     // Note: listing_id and created_at might not be necessary.
+    // const {
+    //   borough_name,
+    //   created_at,
+    //   display_name,
+    //   email,
+    //   listing_details,
+    //   listing_id,
+    //   listing_title,
+    //   skills_offered,
+    //   skills_wanted,
+    //   timescale,
+    // } = listing;
+    console.log(listing)
     const {
       borough_name,
       created_at,
@@ -76,24 +89,22 @@ export async function createlisting(listing) {
       skills_wanted,
       timescale,
     } = listing;
-
+    console.log("We made it to model.");
     const resultFromCreate = await supabase
       .from("guest_listings_tbl")
       .insert([
         {
           borough_name,
-          created_at,
           display_name,
           email,
           listing_details,
-          listing_id,
           listing_title,
           skills_offered,
-          skills_wanted,
-          timescale,
+          skills_wanted          
         },
       ])
       .select();
+console.log(resultFromCreate);
 
     // // Once we're done the above, we want to return the newly create row, so we need to do another query to SELECT that row.
     // const queryTextForSelect =

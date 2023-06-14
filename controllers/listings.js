@@ -24,7 +24,9 @@ export async function getlistings(req, res) {
 
 export async function createlisting(req, res) {
   console.log("Made it to controller.");
+  console.log(req);
   const data = req.body;
+  console.log(data);
   const listing = await listingModel.createlisting(data);
   res.json({ success: true, payload: listing });
 }
