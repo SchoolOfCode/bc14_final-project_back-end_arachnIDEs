@@ -7,8 +7,8 @@ import express from "express";
 import { listingRoutes } from "./routes/listings.js";
 import cors from "cors";
 const app = express();
-// const PORT = process.env.PORT;
-const PORT = 5000;
+const PORT = process.env.PORT;
+
 // const cors = require("cors");
 app.use(cors({ origin: "http://localhost:3000" }));
 
