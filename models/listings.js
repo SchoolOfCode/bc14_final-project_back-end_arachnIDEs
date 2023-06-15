@@ -101,6 +101,7 @@ export async function createlisting(listing) {
           listing_title,
           skills_offered,
           skills_wanted,
+          timescale,
         },
       ])
       .select();
