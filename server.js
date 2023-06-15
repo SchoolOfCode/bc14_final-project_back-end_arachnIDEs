@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://helpme-helpyou-favour.netlify.app/",
+      "https://helpme-helpyou-favour.netlify.app",
     ],
   })
 );
