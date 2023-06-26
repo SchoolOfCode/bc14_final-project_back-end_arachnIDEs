@@ -3,7 +3,7 @@ import "dotenv/config";
 import express from "express";
 // import morgan from "morgan";
 
-// import { bookRoutes } from "./routes/books.js";
+import { usersRoutes } from "./routes/users.js";
 import { listingRoutes } from "./routes/listings.js";
 import cors from "cors";
 const app = express();
@@ -27,6 +27,7 @@ app.use(express.json());
 
 // Now go to the routes folder. (Start with the authors ones for now)
 app.use("/api/listings", listingRoutes);
+app.use("/api/users", usersRoutes);
 // console.log(process.env.REACT_APP_SUPABASE_URL);
 
 app.listen(PORT, function () {
