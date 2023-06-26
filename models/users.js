@@ -82,6 +82,7 @@ export async function createUser(user) {
     // } = user;
     console.log(user);
     const {
+      user_id,
       full_name,
       display_name,
       email_address,
@@ -99,9 +100,10 @@ export async function createUser(user) {
     } = user;
     console.log("We made it to model.");
     const resultFromCreate = await supabase
-      .from("users_profile_tbl")
+      .from("user_profile_tbl")
       .insert([
         {
+          user_id,
           full_name,
           display_name,
           email_address,
