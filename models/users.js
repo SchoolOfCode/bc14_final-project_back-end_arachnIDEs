@@ -41,20 +41,21 @@ export async function getUsers() {
 //   }
 // }
 
-// export async function getUserById(id) {
-//   // Query the database and return the book with a matching id
-//   try {
-//     const values = [id];
-//     const queryText =
-//       "SELECT first_name || ' ' ||  last_name AS user_name FROM users WHERE id = $1";
-//     const result = await pool.query(queryText, values);
-//     return result.rows;
-//   } catch (error) {
-//     // Handle the error appropriately (e.g., logging, error response)
-//     console.error("Error retrieving users:", error);
-//     throw error; // Rethrow the error if necessary
-//   }
-// }
+export async function getUserById(id) {
+  // Query the database and return the book with a matching id
+  try {
+    const result = await supabase.from("user_profile_tbl").select().eq("user_id", id);
+    // const values = [id];
+    // const queryText =
+    //   "SELECT first_name || ' ' ||  last_name AS user_name FROM users WHERE id = $1";
+    // const result = await pool.query(queryText, values);
+    return [...result.data];
+  } catch (error) {
+    // Handle the error appropriately (e.g., logging, error response)
+    console.error("Error retrieving users:", error);
+    throw error; // Rethrow the error if necessary
+  }
+}
 
 export async function createUser(user) {
   // Query the database to create an user and return the newly created user

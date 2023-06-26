@@ -17,10 +17,10 @@ export async function getUsers(req, res) {
   res.json({ success: true, payload: users });
 }
 
-// export async function getuserById(req, res) {
-//   const user = await userModel.getuserById(req.params.id);
-//   res.json({ success: true, payload: user });
-// }
+export async function getUserById(req, res) {
+  const user = await usersModel.getUserById(req.params.id);
+  res.json({ success: true, payload: user });
+}
 
 export async function createUser(req, res) {
   console.log("Made it to controller.");
