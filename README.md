@@ -16,7 +16,7 @@ From moving flats to feeding cats - we have it covered.</em></p>
 ## 📖 Contents 📖
 
 1. [Authors](#authors)
-2. [Problem and Solution](#problem-and-solution-💡)
+2. [Problem and Solution](#problem-and-solution)
 3. [Instructions or Demo video](#instructions-or-demo-video)
 4. [Tech Stack](#tech-stack)
 5. [Future Scope](#future-scope)
@@ -33,7 +33,7 @@ From moving flats to feeding cats - we have it covered.</em></p>
 [Sarah Salmean](https://github.com/sarahsalmean)  
 [Tom Webb](https://github.com/tomwebb2022)
 
-## Problem and Solution 💡
+## Problem and Solution
 
 In a post-Covid world, many people are struggling with a lack of a support system. This struggle is compounded by a cost-of-living crisis, preventing individuals from meeting their basic and auxiliary needs, whether due to financial issues or physical limitations.
 Developing community cohesion is a challenge that requires effort from members within the community, many of whom are also struggling with the cost of living.
