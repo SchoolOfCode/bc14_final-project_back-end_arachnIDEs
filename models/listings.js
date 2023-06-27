@@ -8,7 +8,10 @@ export async function getlistings() {
   try {
     // const result = await pool.query("SELECT * FROM guest_listings_tbl");
     // const result = await supabase.query("SELECT * FROM guest_listings_tbl");
-    const result = await supabase.from("guest_listings_tbl").select();
+    const result = await supabase
+      .from("guest_listings_tbl")
+      .select()
+      .order("created_at", { ascending: false });
     console.log("We made it to model.");
     console.log(result);
     // return [...result.rows];
