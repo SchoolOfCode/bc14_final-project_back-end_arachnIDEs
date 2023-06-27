@@ -15,8 +15,6 @@ From moving flats to feeding cats - we have it covered.</em></p>
 
 ## 📖 Contents 📖
 
----
-
 - [Authors](#authors)
 - [Problem and Solution](#🧐-problem-and-solution-💡)
 - [Instructions or Demo video](#📹-instructions-or-demo-video-📹)
