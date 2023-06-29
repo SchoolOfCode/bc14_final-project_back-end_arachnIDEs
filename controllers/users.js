@@ -18,6 +18,7 @@ export async function getUsers(req, res) {
 }
 
 export async function getUserById(req, res) {
+  console.log("Made it to controller.");
   const user = await usersModel.getUserById(req.params.id);
   res.json({ success: true, payload: user });
 }
@@ -31,11 +32,12 @@ export async function createUser(req, res) {
   res.json({ success: true, payload: user });
 }
 
-// export async function updateUserById(req, res) {
-//   const data = req.body;
-//   const user = await userModel.updateUserById(req.params.id, data);
-//   res.json({ success: true, payload: user });
-// }
+export async function updateUserById(req, res) {
+  console.log("Made it to controller.");
+  const data = req.body;
+  const user = await usersModel.updateUserById(req.params.id, data);
+  res.json({ success: true, payload: user });
+}
 
 // export async function deleteUserById(req, res) {
 //   const user = await userModel.deleteUserById(req.params.id);
