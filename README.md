@@ -109,7 +109,11 @@ We have provided a link for the hosted version of the application above, but if 
 | HTTP Method | Path            |  Request Body (JSON)    | Response Body (JSON)          | Status Code | Result                         |
 | ----------- | --------------- |  ---------------------- | ----------------------------- | ----------- | ------------------------------ |
 | GET         | /api/listings               |                         | Array of guest listings | 200         | Get all listings                |
-| POST        | /api/listings          | New guest listing | New guest listing       | 201         | Adds a new guest listing to the Give Help Page               |
+| POST        | /api/listings          | New guest listing | New guest listing       | 201         | Adds a new guest listing to the Give Help Page              
+| GET         | /api/users               |                         | Array of users | 200         | Get all users                |
+| GET         | /api/users/:id               |                         | Single user | 200         | Get user by id                |
+| POST        | /api/users          | New user | New user       | 201         | Adds a new user to the Find Help Page               
+| PATCH       | /api/users/:id          | Updated user | Updated user       | 201         | Updates existing user's row ing the db |     
 
 ## Front End Repo
 [See the front end repo here](https://github.com/SchoolOfCode/bc14_final-project_front-end_arachnIDEs)
