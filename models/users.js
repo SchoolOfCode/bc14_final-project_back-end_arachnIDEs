@@ -12,8 +12,8 @@ export async function getUsers() {
       .from("user_profile_tbl")
       .select()
       .order("full_name", { ascending: false });
-      // .order("created_at", { ascending: false });
-      console.log("We made it to model.");
+    // .order("created_at", { ascending: false });
+    console.log("We made it to model.");
     console.log(result);
     // return [...result.rows];
     return [...result.data];
@@ -44,7 +44,10 @@ export async function getUsers() {
 export async function getUserById(id) {
   // Query the database and return the book with a matching id
   try {
-    const result = await supabase.from("user_profile_tbl").select().eq("user_id", id);
+    const result = await supabase
+      .from("user_profile_tbl")
+      .select()
+      .eq("user_id", id);
     // const values = [id];
     // const queryText =
     //   "SELECT first_name || ' ' ||  last_name AS user_name FROM users WHERE id = $1";
@@ -137,10 +140,75 @@ export async function createUser(user) {
   }
 }
 
-// export async function updateUserById(id, updates) {
-//   // Query the database to update an user and return the newly updated user
-//   return {};
-// }
+export async function updateUserById(id, updatedUser) {
+  // Query the database to update an user and return the newly updated user
+  // The following is NOT yet correct.
+  try {
+    console.log("We made it to model.");
+
+    const updatedUserFromDb = await supabase
+      .from("user_profile_tbl")
+      .update({ ...updatedUser })
+      .eq("user_id", id)
+      .select()
+      .eq("user_id", id);
+
+    console.log(updatedUserFromDb);
+
+    // const {
+    //   user_id,
+    //   full_name,
+    //   display_name,
+    //   email_address,
+    //   borough_name,
+    //   gender,
+    //   mobile_number,
+    //   password,
+    //   skills_needed,
+    //   skills_offered,
+    //   about_me,
+    //   social_media,
+    //   profile_picture,
+    //   dob,
+    //   rating,
+    // } = user;
+
+    // const resultFromCreate = await supabase
+    //   .from("user_profile_tbl")
+    //   .insert([
+    //     {
+    //       user_id,
+    //       full_name,
+    //       display_name,
+    //       email_address,
+    //       borough_name,
+    //       gender,
+    //       mobile_number,
+    //       password,
+    //       skills_needed,
+    //       skills_offered,
+    //       about_me,
+    //       social_media,
+    //       profile_picture,
+    //       dob,
+    //       rating,
+    //     },
+    //   ])
+    //   .select();
+    // console.log(resultFromCreate);
+    return updatedUserFromDb;
+    // // Once we're done the above, we want to return the newly create row, so we need to do another query to SELECT that row.
+    // const queryTextForSelect =
+    //   "SELECT * FROM users WHERE first_name = $1 AND last_name = $2";
+    // const result = await pool.query(queryTextForSelect, values);
+    // // console.log(result.rows);
+    // return result.rows;
+  } catch (error) {
+    // Handle the error appropriately (e.g., logging, error response)
+    console.error("Error retrieving users:", error);
+    throw error; // Rethrow the error if necessary
+  }
+}
 
 // export async function deleteUserById(id) {
 //   // Query the database to delete an user and return the deleted user

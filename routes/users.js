@@ -19,6 +19,6 @@ usersRoutes.get("/:id", usersController.getUserById);
 
 usersRoutes.post("/", usersController.createUser);
 
-// usersRoutes.patch("/:id", usersController.updateUsersById);
+usersRoutes.patch("/:id", usersController.updateUserById);
 
 // usersRoutes.delete("/:id", usersController.deleteUsersById);
