@@ -146,9 +146,43 @@ export async function updateUserById(id, updatedUser) {
   try {
     console.log("We made it to model.");
 
+    const {
+      user_id,
+      full_name,
+      display_name,
+      email_address,
+      borough_name,
+      gender,
+      mobile_number,
+      password,
+      skills_needed,
+      skills_offered,
+      about_me,
+      social_media,
+      profile_picture,
+      dob,
+      rating,
+    } = updatedUser;
+
     const updatedUserFromDb = await supabase
       .from("user_profile_tbl")
-      .update({ ...updatedUser })
+      .update({
+        user_id,
+        full_name,
+        display_name,
+        email_address,
+        borough_name,
+        gender,
+        mobile_number,
+        password,
+        skills_needed,
+        skills_offered,
+        about_me,
+        social_media,
+        profile_picture,
+        dob,
+        rating,
+      })
       .eq("user_id", id)
       .select()
       .eq("user_id", id);
